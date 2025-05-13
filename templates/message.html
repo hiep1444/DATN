@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<script>
+    alert("{{ message }}");
+    window.location.href = "/";
+</script>
+{% endblock %}

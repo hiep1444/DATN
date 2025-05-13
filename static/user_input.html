@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hệ thống AI dự đoán điểm HSA</title>
+    <link type="image/png" sizes="96x96" rel="icon" href="../assets/images/icons8-ai-96.png" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/vendors/css/vendors.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/vendors/css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/vendors/css/select2-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/vendors/css/datepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/theme.min.css" />
+    <style>
+      /* *:not(i){
+            font-family: sans-serif !important;
+        } */
+    </style>
+  </head>
+  <body>
+    <nav class="nxl-navigation">
+      <div class="navbar-wrapper">
+        <div class="m-header">
+          <a href="index.html" class="b-brand">
+            <img src="" alt="" class="logo logo-lg" />
+            <img src="" alt="" class="logo logo-sm" />
+          </a>
+        </div>
+        <div class="navbar-content">
+          <ul class="nxl-navbar">
+            <li class="nxl-item nxl-caption">
+              <label>Danh sách chức năng</label>
+            </li>
+            <li class="nxl-item active">
+              <a href="java" class="nxl-link">
+                <span class="nxl-micon">
+                  <i class="feather-cpu"></i>
+                </span>
+                <span class="nxl-mtext">Dự đoán điểm thi HSA</span>
+              </a>
+            </li>
+            <li class="nxl-item">
+              <a href="javascript:alert('lol just a demo button, can\'t use this yet');" class="nxl-link">
+                <span class="nxl-micon">
+                  <i class="feather-bar-chart"></i>
+                </span>
+                <span class="nxl-mtext">Xem thống kê</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--! ================================================================ !-->
+    <!--! [End]  Navigation Manu !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! [Start] Header !-->
+    <!--! ================================================================ !-->
+    <header class="nxl-header">
+      <div class="header-wrapper">
+        <!--! [Start] Header Left !-->
+        <div class="header-left d-flex align-items-center gap-4">
+          <!--! [Start] nxl-head-mobile-toggler !-->
+          <a href="javascript:void(0);" class="nxl-head-mobile-toggler" id="mobile-collapse">
+            <div class="hamburger hamburger--arrowturn">
+              <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+              </div>
+            </div>
+          </a>
+          <!--! [Start] nxl-head-mobile-toggler !-->
+          <!--! [Start] nxl-navigation-toggle !-->
+          <div class="nxl-navigation-toggle">
+            <span href="javascript:void(0);" id="menu-mini-button ">
+              <h4>Hệ thống AI dự đoán điểm HSA </h4>
+            </span>
+            <a href="javascript:void(0);" id="menu-expend-button" style="display: none">
+              <i class="feather-arrow-right"></i>
+            </a>
+          </div>
+          <!--! [End] nxl-navigation-toggle !-->
+        </div>
+        <!--! [End] Header Left !-->
+        <!--! [Start] Header Right !-->
+        <div class="header-right ms-auto">
+          <div class="d-flex align-items-center">
+            <div class="dropdown nxl-h-item">
+              <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button" data-bs-auto-close="outside">
+                <img src="../assets/images/logo-dnu.png" alt="user-image" class="img-fluid user-avtar me-0" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--! [End] Header Right !-->
+      </div>
+    </header>
+    <!--! ================================================================ !-->
+    <!--! [End] Header !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! [Start] Main Content !-->
+    <!--! ================================================================ !-->
+    <main class="nxl-container">
+      <div class="nxl-content">
+        <!-- [ Main Content ] start -->
+        <div class="main-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card border-top-0">
+                <div class="card-header p-0">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs flex-wrap w-100 text-center customers-nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item flex-fill border-top" role="presentation">
+                      <a href="javascript:void(0);" class="nav-link d-flex align-items-center justify-content-center" data-bs-toggle="tab" data-bs-target="#fileTab" role="tab">
+                        <span class="nxl-micon" style="margin-right: 0.25rem;">
+                          <i class="feather feather-file-text "></i>
+                        </span>
+                        <span style="font-size: 1rem;line-height: 100%;">Upload file</span>
+                      </a>
+                    </li>
+                    <li class="nav-item flex-fill border-top" role="presentation">
+                      <a href="javascript:void(0);" class="nav-link active d-flex align-items-center justify-content-center" data-bs-toggle="tab" data-bs-target="#inputTab" role="tab">
+                        <span class="nxl-micon" style="margin-right: 0.25rem;">
+                          <i class="feather feather-edit-2 "></i>
+                        </span>
+                        <span style="font-size: 1rem;line-height: 100%;">Nhập thủ công</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tab-content">
+                  <!-- File Tab -->
+                  <div class="tab-pane fade" id="fileTab" role="tabpanel">
+                    <!-- Start -->
+                    <section class="card-body personal-info mt-4">
+                      <div>
+                        <div class="mb-5">
+                          <h2 class="fs-16 fw-bold">Vui lòng đính kèm file tài liệu theo mẫu</h2>
+                          <p class="text-muted"> Nếu bạn cần file mẫu, vui lòng tải tại file bên dưới </p>
+                          <a href="javascript:alert('lol just a demo, can\'t use this yet')" class="btn btn-success" style="max-width: 25%;">
+                            <i class="feather feather-download me-3"></i>
+                            <span>Download template</span>
+                          </a>
+                        </div>
+                        <div class="mb-4">
+                          <form action="javascript:alert('lol just a demo, can\'t use this yet')" method="post" enctype="multipart/form-data">
+                            <h2 class="fs-16 fw-bold">Upload file</h2>
+                            <input class="form-control" name="fileDocument" type="file" accept=".xlsx, .xls, .csv" required>
+                            <button type="submit" class="btn btn-primary mt-3" style="max-width: 25%;">Submit</button>
+                          </form>
+                        </div>
+                      </div>
+                    </section>
+                    <!-- End -->
+                  </div>
+                  <!-- End File Tab -->
+                  <!-- Input tab -->
+                  <div class="tab-pane show active fade" id="inputTab" role="tabpanel">
+                    <div class="card-body pass-info">
+                      <div class="mb-4 d-flex align-items-center justify-content-between">
+                        <h5 class="fw-bold mb-0 me-4">
+                          <span class="d-block mb-2">Nhập liệu thủ công:</span>
+                          <span class="fs-12 fw-normal text-muted text-truncate-1-line"> Nhập thông tin điểm cấp 3 thí sinh vào form dưới đây. </span>
+                        </h5>
+                      </div>
+                      <!-- Input element -->
+                      <div class="row mb-4 align-items-center">
+                        <div class="col-lg-4">
+                          <label for="Input" class="fw-semibold"> Điểm Toán trung bình: </label>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="input-group">
+                            <input type="number" min="0" max="10" class="form-control" name="ToanTB" placeholder="Điểm toán trung bình cấp 3" />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End input element -->
+                      <!-- Input element -->
+                      <div class="row mb-4 align-items-center">
+                        <div class="col-lg-4">
+                          <label for="Input" class="fw-semibold"> Điểm Ngữ văn trung bình: </label>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="input-group">
+                            <input type="number" min="0" max="10" name="VanTB" class="form-control" placeholder="Điểm Ngữ văn trung bình cấp 3" />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End input element -->
+                      <!-- Input element -->
+                      <div class="row mb-4 align-items-center">
+                        <div class="col-lg-4">
+                          <label for="Input" class="fw-semibold"> Điểm Khoa học (hoặc tiếng Anh) trung bình: </label>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="input-group">
+                            <input type="number" min="0" max="10" name="KH_TA_TB" class="form-control" placeholder="Điểm thành phần Khoa học hoặc tiếng Anh trung bình cấp 3" />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End input element -->
+                       <!-- Input element -->
+                      <div class="row mb-4 align-items-center">
+                        <div class="col-lg-4">
+                          <label for="Input" class="fw-semibold"> Môn phần 3 thi: </label>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="input-group">
+                            <select name="TypeMon3" id="" class="form-control">
+                                <option value="1" selected>Khoa học</option>
+                                <option value="2">Tiếng Anh</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End input element -->
+                      <div class="input-group mb-3">
+                        <button type="submit" class="btn btn-primary" style="max-width: 25%;"> Dự đoán </button>
+                      </div>
+                      <hr>
+                      <div class="pass-hint">
+                        <p class="fw-bold">Cách tính điểm trung bình:</p>
+                        <ul class="fs-12 ps-1 ms-2 text-muted">
+                          <li class="mb-1">Điểm TB = (Điểm CN lớp 10 + Điểm CN lớp 11 + Điểm CN lớp 12 * 2) / 4</li>
+                          <li class="mb-1"> Điểm TB Khoa học = (Điểm KHTN + Điểm KHXH) / 2 </li>
+                          <li class="mb-1"> Điểm KHTN = (Điểm TB Lý + Điểm TB Hóa + Điểm TB Sinh) / 3 </li>
+                          <li class="mb-1"> Điểm KHXH = (Điểm TB Sử + Điểm TB Địa) / 2 </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Input tab -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- [ Main Content ] end -->
+      </div>
+      <!-- [ Footer ] start -->
+      <footer class="footer">
+        <p class="fs-11 text-muted fw-medium text-uppercase mb-0 copyright">
+          <span>Copyright ©</span>
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+        </p>
+        <div class="d-flex align-items-center gap-4">
+          <a href="https://www.facebook.com/hiepdnguyn" target="_blank" class="fs-11 fw-semibold text-uppercase">Nguyen Duc Hiep</a>
+        </div>
+      </footer>
+      <!-- [ Footer ] end -->
+    </main>
+    <!--! ================================================================ !-->
+    <!--! [End] Main Content !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! Footer Script !-->
+    <!--! ================================================================ !-->
+    <!--! BEGIN: Vendors JS !-->
+    <script src="assets/vendors/js/vendors.min.js"></script>
+    <!-- vendors.min.js {always must need to be top} -->
+    <!--! END: Vendors JS !-->
+  </body>
+</html>

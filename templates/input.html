@@ -1,0 +1,134 @@
+{% extends 'layout.html' %} 
+{% block title %}Home Page{% endblock %} 
+{% block content %} 
+<div class="nxl-content">
+    <!-- [ Main Content ] start -->
+    <div class="main-content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card border-top-0">
+            <div class="card-header p-0">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs flex-wrap w-100 text-center customers-nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item flex-fill border-top" role="presentation">
+                  <a href="javascript:void(0);" class="nav-link active d-flex align-items-center justify-content-center" data-bs-toggle="tab" data-bs-target="#fileTab" role="tab">
+                    <span class="nxl-micon" style="margin-right: 0.25rem">
+                      <i class="feather feather-file-text"></i>
+                    </span>
+                    <span style="font-size: 1rem; line-height: 100%">Upload file</span>
+                  </a>
+                </li>
+                <li class="nav-item flex-fill border-top" role="presentation">
+                  <a href="javascript:void(0);" class="nav-link d-flex align-items-center justify-content-center" data-bs-toggle="tab" data-bs-target="#inputTab" role="tab">
+                    <span class="nxl-micon" style="margin-right: 0.25rem">
+                      <i class="feather feather-edit-2"></i>
+                    </span>
+                    <span style="font-size: 1rem; line-height: 100%">Nhập thủ công</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              
+              <!-- File Tab -->
+              <div class="tab-pane show active fade" id="fileTab" role="tabpanel">
+                <section class="card-body personal-info mt-4">
+                  <div>
+                    <div class="mb-5">
+                      <h2 class="fs-16 fw-bold">Vui lòng đính kèm file tài liệu theo mẫu</h2>
+                      <p class="text-muted">Nếu bạn cần file mẫu, vui lòng tải tại file bên dưới</p>
+                      <a href="{{ url_for('static', filename='template.xlsx') }}" class="btn btn-success" style="max-width: 25%">
+                        <i class="feather feather-download me-3"></i>
+                        <span>Download template</span>
+                      </a>
+                    </div>
+                    <div class="mb-4">
+                      <form action="/upload" method="post" enctype="multipart/form-data">
+                        <h2 class="fs-16 fw-bold">Upload file</h2>
+                        <input class="form-control" name="file" type="file" accept=".csv" required />
+                        <div class="row mt-4 align-items-center">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3" style="max-width: 25%">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <!-- End File Tab -->
+
+              <!-- Input Tab -->
+              <div class="tab-pane fade" id="inputTab" role="tabpanel">
+                <div class="card-body pass-info">
+                  <div class="mb-4 d-flex align-items-center justify-content-between">
+                    <h5 class="fw-bold mb-0 me-4">
+                      <span class="d-block mb-2">Nhập liệu thủ công:</span>
+                      <span class="fs-12 fw-normal text-muted text-truncate-1-line"> Nhập thông tin điểm cấp 3 thí sinh vào form dưới đây. </span>
+                    </h5>
+                  </div>
+                  <form action="/predict" method="post">
+                    
+                    <!-- Điểm Toán trung bình -->
+                    <div class="row mb-4 align-items-center">
+                      <div class="col-lg-4">
+                        <label for="Input" class="fw-semibold fs-5">Điểm Toán trung bình:</label>
+                      </div>
+                      <div class="col-lg-8">
+                        <div class="text-muted fs-12 mb-1">
+                          Công thức: (Điểm trung bình cả năm lớp 10 + Điểm trung bình cả năm lớp 11 + Điểm trung bình cả năm lớp 12 * 2) / 4
+                        </div>
+                        <div class="input-group">
+                          <input type="number" step="any" min="0" max="10" class="form-control" name="ToanTB" placeholder="Điểm trung bình môn toán" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Điểm Ngữ văn trung bình -->
+                    <div class="row mb-4 align-items-center">
+                      <div class="col-lg-4">
+                        <label for="Input" class="fw-semibold fs-5">Điểm Ngữ văn trung bình:</label>
+                      </div>
+                      <div class="col-lg-8">
+                        <div class="text-muted fs-12 mb-1">
+                          Công thức: (Điểm trung bình cả năm lớp 10 + Điểm trung bình cả năm lớp 11 + Điểm trung bình cả năm lớp 12 * 2) / 4
+                        </div>
+                        <div class="input-group">
+                          <input type="number" step="any" min="0" max="10" name="VanTB" class="form-control" placeholder="Điểm trung bình môn ngữ văn" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Điểm Khoa học trung bình -->
+                    <div class="row mb-4 align-items-center">
+                      <div class="col-lg-4">
+                        <label for="Input" class="fw-semibold fs-5">Điểm Khoa học trung bình:</label>
+                      </div>
+                      <div class="col-lg-8">
+                        <div class="text-muted fs-12 mb-1">
+                          Công thức:
+                          (Điểm KHTN + Điểm KHXH) / 2<br>
+                          - Điểm KHTN = (Điểm trung bình Lý 3 năm + Điểm trung bình Hóa 3 năm + Điểm trung bình Sinh 3 năm) / 3<br>
+                          - Điểm KHXH = (Điểm trung bình Sử 3 năm + Điểm trung bình Địa 3 năm) / 2
+                        </div>
+                        <div class="input-group">
+                          <input type="number" step="any" min="0" max="10" name="KH_TA_TB" class="form-control" placeholder="Điểm trung bình môn khoa học" />
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                      <button type="submit" class="btn btn-primary" style="max-width: 25%">Dự đoán</button>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+              <!-- End Input Tab -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- [ Main Content ] end -->
+</div> 
+{% endblock %}
