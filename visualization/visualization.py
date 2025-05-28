@@ -41,25 +41,25 @@ plt.show()
 
 
 # 3. Phân bố điểm qua các lớp, tách riêng từng lớp
-fig, axes = plt.subplots(3, 1, figsize=(8, 12))
+fig, axes = plt.subplots(3, 1, figsize=(9, 13), constrained_layout=True)
 
 sns.histplot(df["10.Điểm tổng kết CN"], bins=20, kde=True, color="blue", ax=axes[0])
-axes[0].set_title("Phân bố điểm lớp 10")
-axes[0].set_xlabel("Điểm trung bình")
-axes[0].set_ylabel("Số học sinh")
+axes[0].set_title("Phân bố điểm lớp 10", fontsize=14, pad=20)
+axes[0].set_xlabel("Điểm trung bình", fontsize=12, labelpad=15)
+axes[0].set_ylabel("Số học sinh", fontsize=12)
 
 sns.histplot(df["11.Điểm tổng kết CN"], bins=20, kde=True, color="green", ax=axes[1])
-axes[1].set_title("Phân bố điểm lớp 11")
-axes[1].set_xlabel("Điểm trung bình")
-axes[1].set_ylabel("Số học sinh")
+axes[1].set_title("Phân bố điểm lớp 11", fontsize=14, pad=20)
+axes[1].set_xlabel("Điểm trung bình", fontsize=12, labelpad=15)
+axes[1].set_ylabel("Số học sinh", fontsize=12)
 
 sns.histplot(df["12.Điểm tổng kết CN"], bins=20, kde=True, color="red", ax=axes[2])
-axes[2].set_title("Phân bố điểm lớp 12")
-axes[2].set_xlabel("Điểm trung bình")
-axes[2].set_ylabel("Số học sinh")
+axes[2].set_title("Phân bố điểm lớp 12", fontsize=14, pad=20)
+axes[2].set_xlabel("Điểm trung bình", fontsize=12, labelpad=15)
+axes[2].set_ylabel("Số học sinh", fontsize=12)
 
-plt.tight_layout()
 plt.show()
+
 
 # 4. Biểu đồ xu hướng điểm trung bình theo học kỳ - Đổi thành biểu đồ cột nhóm
 plt.figure(figsize=(10, 6))

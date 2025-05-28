@@ -9,7 +9,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 script_dir = os.path.dirname(__file__)
-file_path = os.path.join(script_dir, '..', 'data', 'HSA_HD_Final_Cleaned_ALL_Fixed.csv')
+file_path = os.path.join(script_dir, '..', 'data', 'HSA_HD_Final_Cleaned_All_Fixed.csv')
 
 # Đọc dữ liệu bằng đường dẫn đầy đủ đã xây dựng
 try:
@@ -112,7 +112,7 @@ for index, row in test_data_for_accuracy.iterrows():
         correct_count += 1
 
 accuracy = correct_count / len(test_data_for_accuracy) * 100
-print(f"Độ chính xác (sai số <= {tolerance} điểm): {accuracy:.2f}%")
+print(f"Độ chính xác): {accuracy:.2f}%")
 print("==============================================")
 
 
